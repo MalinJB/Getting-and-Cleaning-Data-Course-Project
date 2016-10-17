@@ -32,15 +32,15 @@ colnames(subjectTest) <- "subjectId"
 #Combine files into one training and one test data set
 trainData <- cbind(yTrain, subjectTrain, XTrain) #training data
 testData <- cbind(yTest, subjectTest, XTest)     #test data
-View(trainData)
-View(testData)
-dim(trainData)                                   #expected dim is 7352x563
-dim(testData)                                    #expected dim is 2947x563
+#View(trainData)
+#View(testData)
+#dim(trainData)                                   #expected dim is 7352x563
+#dim(testData)                                    #expected dim is 2947x563
 
 #Merge training and test data sets
 mergedData <- rbind(testData, trainData)
-View(mergedData)
-dim(mergedData)                                  #expected dim is 10299x563
+#View(mergedData)
+#dim(mergedData)                                  #expected dim is 10299x563
 
 #Extract only the measurements on the mean and sd for each measurement
 library(dplyr)
@@ -50,10 +50,10 @@ mergedDataMeanSTD <- mergedData[grepl('mean|std', names(mergedData))]
 mergedDataMeanSTDAdd <- cbind(activityId = mergedData$activityId, 
                          subjectId = mergedData$subjectId, 
                          mergedDataMeanSTD)
-View(mergedDataMeanSTDAdd)
+#View(mergedDataMeanSTDAdd)
 
 #Replace activityId by descriptive activity names
-View(activityLabels)
+#View(activityLabels)
 activityLabels <- as.character(activityLabels[,2])
 mergedDataMeanSTDAdd$activityId <- activityLabels[mergedDataMeanSTDAdd$activityId]
 
@@ -66,7 +66,7 @@ names(mergedDataMeanSTDAdd) <- gsub("Gyro", "Gyroscope", names(mergedDataMeanSTD
 names(mergedDataMeanSTDAdd) <- gsub("Mag", "Magnitude", names(mergedDataMeanSTDAdd))
 names(mergedDataMeanSTDAdd) <- gsub("BodyBody", "Body", names(mergedDataMeanSTDAdd))
 
-names(mergedDataMeanSTDAdd) #confirm changes
+#names(mergedDataMeanSTDAdd) #confirm changes
 
 #New data set with the average of each activity and each subject
 #Subset based on activity and subject

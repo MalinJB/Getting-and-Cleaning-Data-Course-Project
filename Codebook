@@ -21,11 +21,11 @@ Read in the various data files.
 
 #Assign descriptive variable names
 The following abbreviations have been changed accordingly:
-t 		    time
-f		      frequency
-Acc		    Accelerometer
-Gyro		  Gyroscope
-Mag		    Magnitude
+t 		time
+f		frequency
+Acc		Accelerometer
+Gyro		Gyroscope
+Mag		Magnitude
 BodyBody	Body
 
 #New data set with the average of each activity and each subject
@@ -35,7 +35,8 @@ Subset based on activity and subject
 write.table(averageDataSet, file = "./data/averagedataset.txt", row.name = FALSE)
 
 
-The final tidy data set contains the average (mean) of each variable for six different activities and 30 subjects. 
+The final tidy data set contains the average (mean) of each variable for 
+six different activities and 30 subjects. 
 
 Variables:
 
